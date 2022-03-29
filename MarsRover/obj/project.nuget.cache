@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4JyJj3zQLboSQi86bX2Ywkjrg7w67PE71j7MJLTns0OXQqesmr3Jq8rGI4NBUCr0MMeAW0CEpTEbvjwrP1IUaw==",
+  "success": true,
+  "projectFilePath": "/Users/Kal/Projects/MarsRover/MarsRover/MarsRover.csproj",
+  "expectedPackageFiles": [
+    "/Users/Kal/.nuget/packages/microsoft.netcore.platforms/6.0.2/microsoft.netcore.platforms.6.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
