@@ -17,6 +17,7 @@ namespace MarsRover
         {
             switch (direction)
             {
+                // change direction to 90 degrees left of current heading
                 case "N":
                     direction = "W";
                     break;
@@ -37,6 +38,7 @@ namespace MarsRover
         {
             switch (direction)
             {
+                // change direction to 90 degrees right of current heading
                 case "N":
                     direction = "E";
                     break;
@@ -57,12 +59,14 @@ namespace MarsRover
         {
             var maxX = plateau.maxX;
             var maxY = plateau.maxY;
+
+            // stop rover and report co-ordinates/direction if it is at any edge, otherwise move forward
             switch (direction)
             {
                 case "N":
                     if (y == maxY)
                     {
-                        Console.WriteLine("You are at the edge of the grid at the top");
+                        Console.WriteLine($"You are at the edge of the grid at co-ordinates {x} {y}, facing N");
                     }
                     else if (y < maxY)
                     {
@@ -72,7 +76,7 @@ namespace MarsRover
                 case "E":
                     if (x == maxX)
                     {
-                        Console.WriteLine("You are at the edge of the grid on the right side");
+                        Console.WriteLine($"You are at the edge of the grid at co-ordinates {x} {y}, facing E");
                     }
                     else if (x < maxX)
                     {
@@ -82,7 +86,7 @@ namespace MarsRover
                 case "S":
                     if (y == 0)
                     {
-                        Console.WriteLine("You are at the edge of the grid at the bottom");
+                        Console.WriteLine($"You are at the edge of the grid at co-ordinates {x} {y}, facing S");
                     }
                     else if (y > 0)
                     {
@@ -92,7 +96,7 @@ namespace MarsRover
                 case "W":
                     if (x == 0)
                     {
-                        Console.WriteLine("You are at the edge of the grid on the left side");
+                        Console.WriteLine($"You are at the edge of the grid at co-ordinates {x} {y}, facing W");
                     }
                     else if (x > 0)
                     {
@@ -105,11 +109,10 @@ namespace MarsRover
         }
         public void ExecuteCommand(Grid plateau, string roverCommand)
         {
-            char[] instructions = roverCommand.ToCharArray();
-            //loop through array for each letter => spinLeft, spinRight, or moveForward
-            for(int i = 0; i < instructions.Length; i++)
+            //loop through roverCommand for each letter and execute command: spinLeft, spinRight, or moveForward
+            for(int i = 0; i < roverCommand.Length; i++)
             {
-                switch(instructions[i])
+                switch(roverCommand[i])
                 {
                     case 'L':
                         SpinLeft();
